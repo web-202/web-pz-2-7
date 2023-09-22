@@ -1,0 +1,97 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 4px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.time {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.restart-button {
+  color: white;
+  border: none;
+  cursor: pointer;
+  background-color: #5c9bd5;
+  padding: 16px 32px;
+  font-size: 32px;
+  border-radius: 8px;
+}
+
+.error-dialog {
+  display: none;
+}
+
+.color-black {
+  color: black;
+}
+
+.color-red {
+  color: red;
+}
+
+.color-blue {
+  color: blue;
+}
+
+.color-green {
+  color: green;
+}
+
+.color-orange {
+  color: orange;
+}
+
+.color-purple {
+  color: purple;
+}
+
+.font-small {
+  font-size: 24px;
+}
+
+.font-medium {
+  font-size: 28px;
+}
+
+.font-large {
+  font-size: 32px;
+}
+
+.font-xl {
+  font-size: 36px;
+}
+
+.font-xxl {
+  font-size: 48px;
+}
+
+.font-xxxl {
+  font-size: 60px;
+}
+

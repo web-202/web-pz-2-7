@@ -1,0 +1,21 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  background: blue;
+  padding: 16px 32px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-size: 80px;
+  color: red;
+}
