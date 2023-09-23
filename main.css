@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.button-blue {
+  background-color: cornflowerblue;
+  color: white;
+  border-style: none;
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+  cursor: pointer;
+}
+
+.button-blue:hover {
+  transform: scale(1.1);
+}
+
+.title-red {
+  color: indianred;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.screen1 {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.screen2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  gap: 10px;
+}
+
+.gameTable {
+  display: grid;
+  grid-template-columns: repeat(5, 50px);
+  grid-template-rows: repeat(5, 50px);
+  gap: 5px;
+  border: 1px black solid;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+  border: 1px black solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.cell__variant-1 {
+  font-size: 35px;
+  color: sandybrown;
+}
+.cell__variant-2 {
+  font-size: 30px;
+  color: indianred;
+}
+.cell__variant-3 {
+  font-size: 25px;
+  color: cornflowerblue;
+}
+.cell__variant-4 {
+  font-size: 20px;
+  color: yellow;
+}
+.cell__variant-5 {
+  font-size: 15px;
+  color: forestgreen;
+}
+
+.screen3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  gap: 10px;
+}
+
+
+table {
+  width: 50%;
+  border-collapse: collapse;
+  margin: 20px auto;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff;
+}

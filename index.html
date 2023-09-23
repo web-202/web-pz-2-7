@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+  <title>PZ_2_7</title>
+  <link rel="stylesheet" type="text/css" href="./main.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div id="screen1" class="screen1">
+    <h1 class="title-red">Моя перша гра</h1>
+    <button id="goToScreen2withScreen1" class="button-blue">Почати гру</button>
+    <button id="goToScreen3withScreen1" class="button-blue">Таблиця результатів</button>
+  </div>
+
+  <div id="screen2" class="screen2">
+    <h3>Залишилось: <span id="timerElement"></span></h3>
+    <h4 id="currentNumbers">0</h4>
+    <div class="gameTable" id="gameTable">
+
+    </div>
+    <div>
+      <button id="start" onclick="generateMap()" class="button-blue">Почати з початку</button>
+      <button id="goToScreen1withScreen2" class="button-blue">На головне меню</button>
+    </div>
+  </div>
+
+  <div id="screen3" class="screen3">
+    <h1 class="title-red">Результати попередніх ігор</h1>
+    <table  id="statusTable" class="statusTable">
+
+    </table>
+    <button id="goToScreen1withScreen3" class="button-blue">На головне меню</button>
+  </div>
+  <script src="./index.js"></script>
+</body>
+</html>
