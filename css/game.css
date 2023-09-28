@@ -1,0 +1,67 @@
+
+.game-table {
+
+}
+
+.row {
+  display: flex;
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.cell {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #d5cdcd;
+  border: none;
+  cursor: pointer;
+  transition-duration: 300ms;
+}
+
+.cell:hover {
+  border: #605b5b 2px solid;
+  scale: 1.05;
+}
+
+.correctly-answered {
+  background: #94dc68;
+}
+
+.stopwatch {
+  text-align: center;
+  font-size: 24px;
+}
+
+.results {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 250px;
+}
+
+.results-header__item {
+  background: #659BD8;
+  text-align: center;
+  color: white;
+  border: #969191 1px solid;
+}
+
+.results__item {
+  background: #d2ceaf;
+  text-align: center;
+  color: black;
+  border: #969191 1px solid;
+  padding: 4px 10px;
+}
+
+.results__item_last {
+  background: #cec164;
+  text-align: center;
+  color: black;
+  border: #969191 1px solid;
+  padding: 4px 10px;
+}
+
