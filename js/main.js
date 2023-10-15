@@ -1,5 +1,7 @@
 let instructionRead = false;
 let gameOver = false;
+let gameNumber = 0;
+let timeAfterGame = 0;
 function documentsReady(){
 
 }
@@ -15,7 +17,7 @@ function game() {
     let targetNumber = 1; 
     let gameTimer = 60; 
     const timerElement = $("#timer");
-    var colors = ["blue", "yellow", "red", "pink", "purple"];
+    var colors = ["blue", "yellow", "red", "darkgrey", "purple"];
     var size = ["20px", "25px", "15px", "10px", "30px"]
     
     function getRandomUniqueNumber() {
@@ -31,8 +33,8 @@ function game() {
         const row = $("<tr></tr>");
         for (let j = 0; j < 5; j++) {
             const cell = $("<td></td>").text(getRandomUniqueNumber());
-            const randomColor = colors[Math.floor(Math.random() * colors.length)];
-            const randomSize = size[Math.floor(Math.random() * size.length)];
+            const randomColor = colors[Math.floor(Math.random() * colors.length + 1)];
+            const randomSize = size[Math.floor(Math.random() * size.length + 1)];
             cell.css({color: randomColor, fontSize: randomSize})
             row.append(cell);
         }
@@ -65,6 +67,8 @@ function game() {
     
             if (targetNumber === 11) {
                 alert("Знайдені усі числа! Ви перемогли");
+                gameNumber += 1
+                timeAfterGame = 60 - gameTimer
                 clearInterval(timerInterval);
                 startNewGame();
             }
@@ -97,10 +101,15 @@ function game() {
     };
     $("#end_game").on("click", function() {
         startNewGame();
-    });
-       
+    });       
 }
-
+function displayGameResults() {
+    const resultsTable = $("#game-results");
+    const row = $("<tr></tr>");
+    row.append($("<td></td>").text(gameNumber));
+    row.append($("<td></td>").text(timeAfterGame));
+    resultsTable.append(row);
+}
 
 
 
@@ -117,5 +126,6 @@ $("#error-dialog").dialog({
 $("#instruction").on("click", function() {
     startGameAfterInstruction(); 
 });
+
 
 
