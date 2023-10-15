@@ -15,6 +15,8 @@ function game() {
     let targetNumber = 1; 
     let gameTimer = 60; 
     const timerElement = $("#timer");
+    var colors = ["blue", "yellow", "red", "pink", "purple"];
+    var size = ["20px", "25px", "15px", "10px", "30px"]
     
     function getRandomUniqueNumber() {
         let randomNumber;
@@ -29,7 +31,9 @@ function game() {
         const row = $("<tr></tr>");
         for (let j = 0; j < 5; j++) {
             const cell = $("<td></td>").text(getRandomUniqueNumber());
-            cell.css({color: "blue"});
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            const randomSize = size[Math.floor(Math.random() * size.length)];
+            cell.css({color: randomColor, fontSize: randomSize})
             row.append(cell);
         }
         table.append(row);
@@ -81,6 +85,9 @@ function game() {
             const row = $("<tr></tr>");
             for (let j = 0; j < 5; j++) {
                 const cell = $("<td></td>").text(getRandomUniqueNumber());
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                const randomSize = size[Math.floor(Math.random() * size.length)];
+                cell.css({color: randomColor, fontSize: randomSize})
                 row.append(cell);
             }
             table.append(row);
