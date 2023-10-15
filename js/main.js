@@ -112,7 +112,12 @@ function displayGameResults() {
 }
 
 
-
+$(document).ready(function(){
+    $("#game-results").hide();
+    $("#show_button").click(function () {
+        $("#game-results").show();
+    });
+});
 $("#error-dialog").dialog({
     autoOpen: false,
     modal: true,
