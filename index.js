@@ -1,36 +1,72 @@
+let gameResults = [];
+
+
 $(document).ready(function () {
+    
+    $("#game-screen, #results-screen").hide();
+
+    
     $("#start-button").on("click", function () {
-        window.location.href = "./index2.html";
+        $("#main-screen").hide();
+        $("#game-screen").show();
     });
-  });
+
+    
+    $("#show-results").on("click", function () {
+        $("#main-screen").hide();
+        $("#game-screen").hide();
+        $("#results-screen").show();
+        displayResults();   
+    });
+
+    
+    $("#return-to-game").on("click", function () {
+        $("#results-screen").hide();
+        $("#game-screen").show(); 
+    });
+
+
+    $("#start-game").on("click", function () {
+        startGame();
+        generateNewNumbers();
+    });
+
+});
+
+function displayResults() {
+
+    const resultsTable = $("#results-table");
+    resultsTable.empty();
+
+    // Відображення результатів у таблиці
+    for (let i = 0; i < gameResults.length; i++) {
+        resultsTable.append(`<tr><td>Гра ${gameResults[i].gameNumber}</td><td>${gameResults[i].time} с</td></tr>`);
+    }
+}
 
   var seconds = 60;
-
-  // Отримуємо елемент, де відображатиметься таймер
   var timerElement = document.getElementById('timer');
+  var timerInterval; 
+  
+  var gameNumber = 1;
+  var startTime; 
 
-  // Функція, що оновлює таймер
   function updateTimer() {
     var minutes = Math.floor(seconds / 60);
     var remainingSeconds = seconds % 60;
 
-    // Форматуємо час у формат "хвилини:секунди" з двома цифрами
     var formattedTime = (minutes < 10 ? "0" : "") + minutes + ":" + (remainingSeconds < 10 ? "0" : "") + remainingSeconds;
 
-    // Відображаємо відформатований час
     timerElement.innerHTML = formattedTime;
 
-    // Зменшуємо лічильник секунд
     seconds--;
 
-    // Якщо час закінчився, зупиняємо таймер
     if (seconds < 0) {
       clearInterval(timerInterval);
       timerElement.innerHTML = "Час вийшов!";
     }
   }
 
-  // Викликаємо функцію оновлення таймера кожну секунду
   var timerInterval = setInterval(updateTimer, 1000);
 
 
@@ -51,7 +87,6 @@ $(document).ready(function () {
     numbersArray.push(i);
   }
 
-  // Перемішуємо масив чисел
   shuffleArray(numbersArray);
 
   var numbersContainer = document.getElementById('numbers');
@@ -74,15 +109,17 @@ $(document).ready(function () {
   startButton.addEventListener('click', startGame);
 
   function startGame() {
+    startTime = new Date();
+
     selectedNumbers = [];
     var numberElements = document.querySelectorAll('.number');
     numberElements.forEach(function (element) {
       element.classList.remove('selected');
-      element.style.filter = 'brightness(100%)'; // Повернення яскравості до початкового стану
+      element.style.filter = 'brightness(100%)';
     });
 
-    clearInterval(timerInterval); // Зупинити таймер
-    startTimer(); // Почати таймер
+    clearInterval(timerInterval);
+    startTimer();
   }
 
   function toggleNumber(event) {
@@ -92,15 +129,15 @@ $(document).ready(function () {
       if (selectedNumbers.length < 10) {
         selectedNumbers.push(number);
         event.target.classList.add('selected');
-        event.target.style.filter = 'brightness(120%)'; // Збільшення яскравості на 120%
+        event.target.style.filter = 'brightness(120%)';
       }
     } else {
       selectedNumbers.splice(index, 1);
       event.target.classList.remove('selected');
-      event.target.style.filter = 'brightness(100%)'; // Повернення яскравості до початкового стану
+      event.target.style.filter = 'brightness(100%)'; 
     }
 
-    // Перевірка, чи користувач вибрав правильну послідовність
+
     if (selectedNumbers.length === 10) {
       var isCorrectSequence = true;
       for (var i = 0; i < selectedNumbers.length - 1; i++) {
@@ -109,17 +146,25 @@ $(document).ready(function () {
           break;
         }
       }
-      if (isCorrectSequence) {
-        clearInterval(timerInterval); // Зупинити таймер
+
+    if (isCorrectSequence) {
+        const endTime = new Date();
+        const elapsedTime = (endTime - startTime) / 1000;
+
+        // Зберегти результати гри
+        gameResults.push({ gameNumber, time: elapsedTime });
+        gameNumber++;
+
+        clearInterval(timerInterval); 
         alert("Вітаю, ти переміг!");
-      } else {
-        clearInterval(timerInterval); // Зупинити таймер
+        } else {
+        clearInterval(timerInterval); 
         alert("На жаль, ти натискав на не послідовні значення");
       }
     }
   }
 
-  // Функція перемішування масиву
+
   function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
@@ -129,11 +174,11 @@ $(document).ready(function () {
     }
   }
 
-  // Функція старту таймера
+ 
   function startTimer() {
     var seconds = 60;
     var timerElement = document.getElementById('timer');
-    timerInterval = setInterval(function () {
+     timerInterval = setInterval(function () {
       var minutes = Math.floor(seconds / 60);
       var remainingSeconds = seconds % 60;
       var formattedTime = (minutes < 10 ? "0" : "") + minutes + ":" + (remainingSeconds < 10 ? "0" : "") + remainingSeconds;
@@ -145,3 +190,40 @@ $(document).ready(function () {
       }
     }, 1000);
   }
+
+  function createUniqueRandomNumbers(min, max) {
+    let uniqueNumbers = [];
+    let totalNumbers = max - min + 1;
+
+    for (let i = 0; i < totalNumbers; i++) {
+        let randomNumber;
+        do {
+            randomNumber = Math.floor(Math.random() * totalNumbers) + min;
+        } while (uniqueNumbers.includes(randomNumber));
+
+        uniqueNumbers.push(randomNumber);
+    }
+
+    return uniqueNumbers;
+    }
+
+
+  function generateNewNumbers() {
+    let numberElements = document.querySelectorAll('.number');
+    let uniqueNumbers = createUniqueRandomNumbers(1, 25);
+
+    numberElements.forEach(function (element, index) {
+        let newNumber = uniqueNumbers[index];
+        let newColor = getRandomColor();
+        element.textContent = newNumber;
+        element.style.backgroundColor = newColor;
+        element.classList.remove('selected');
+        element.style.filter = 'brightness(100%)';
+    });
+    }    
+
+  
+
+
+   
+

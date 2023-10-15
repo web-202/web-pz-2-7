@@ -1,15 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>web-pz-2-7</title>
-  <link rel="stylesheet" href="./main.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>web-pz-2-7</title>
 </head>
 <body>
-  <div class="screen" id="main-screen">
-    <h1>Моя перша гра</h1>
-    <button id="start-button">Почати гру</button>
-  </div>
-  <script src="./index.js"></script>
+    <div class="screen" id="main-screen">
+        <h1>Моя перша гра</h1>
+        <button id="start-button">Почати гру</button>
+    </div>
+
+    <div class="screen" id="game-screen">
+        <h1>Гра "Збери послідовність з 10 чисел"</h1>
+        <div id="timer">1:00</div>
+        <div id="numbers"></div>
+        <div id="game-table"></div>
+        <button id="start-game">Старт гри</button>
+        <button id="show-results">Показати результати</button>
+    </div>
+
+    <div class="screen" id="results-screen">
+        <h1>Результати гри</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Номер гри</th>
+                    <th>Час проходження</th>
+                </tr>
+            </thead>
+            <tbody id="results-table">
+            </tbody>
+        </table>
+        <button id="return-to-game">Повернутися до гри</button>
+    </div>
+
+    <script src="./index.js"></script>
 </body>
 </html>
