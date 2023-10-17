@@ -1,0 +1,86 @@
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    border: 2px solid black;
+    padding: 20px;
+    position: relative;
+}
+
+#numbersTable {
+    margin: 0 auto;
+}
+
+.number-box {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#modal {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+
+#restart {
+    background-color: lightblue;       
+    color: white;                 
+    border: 0.2px solid black;     
+    padding: 10px 20px;           
+    cursor: pointer;              
+    text-align: center;           
+    margin-top: 20px;            
+    display: block;               
+    margin-left: auto;           
+    margin-right: auto;           
+    transition: background-color 0.3s; 
+    border-radius: px;          
+}
+
+
+#restart:hover {
+    background-color: darkblue;   /* «м≥на фону при наведенн≥ */
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#statistics {
+    border: 1px solid #333;
+    padding: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#statistics table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#statistics th, #statistics td {
+    border: 1px solid #666;
+    padding: 8px 12px;
+    text-align: center;
+}
+
+#statistics tr {
+    background-color: blue;
+    color: white; /* ўоб текст був видимий на синьому фон≥ */
+}
+
+#statistics tr.fastest {
+    background-color: lightcoral;
+    color: black;
+}

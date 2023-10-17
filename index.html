@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Моя Перша Гра</title>
+</head>
+<body>
+    <div class="main-screen">
+        <table class="game-table">
+            <tr>
+                <td>Моя перша гра</td>
+            </tr>
+            <tr>
+                <td><button id="startGame">Почати гру</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="congratulationsModal" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; background: #fff; border: 1px solid black;">
+        Вітаємо! Ви успішно завершили гру!
+    </div>
+
+ 
+    <table id="statistics" style="margin-top: 30px;">
+        <thead>
+            <tr>
+                <th>Назва гри</th>
+                <th>Час</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
