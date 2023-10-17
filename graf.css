@@ -24,7 +24,7 @@ button {
     margin: 10px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007BFF;
+    background-color: #d4ff00;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -36,7 +36,7 @@ button {
 }
 
 .exit-button {
-    background-color: #FF3333;
+    background-color: #ef0404;
 }
 
 #game-message {
