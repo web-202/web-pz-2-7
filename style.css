@@ -1,4 +1,4 @@
-/* Загальні стилі */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -23,7 +23,6 @@ button:hover {
     background-color: #23527c;
 }
 
-/* Стилі для екранів */
 #screen1, #screen2, #screen3 {
     text-align: center;
     margin: 20px auto;
@@ -37,22 +36,19 @@ button:hover {
     display: none;
 }
 
-/* Стилі для клітинок */
 #grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 10px;
-    justify-content: center; /* Горизонтальне центрування */
-    align-items: center; /* Вертикальне центрування */
+    justify-content: center;
+    align-items: center; 
     height: 100%;
     width: 250px;
-    margin: 0 auto; /* Горизонтальне центрування відносно батьківського контейнера */
+    margin: 0 auto;
 }
 
 
 
-/* Оновлені стилі для клітинок */
-/* Оновлені стилі для клітинок */
 .cell {
     width: 40px;
     height: 40px;
@@ -65,7 +61,7 @@ button:hover {
     color: white;
 }
 
-/* Оновлені стилі для кольорів клітинок */
+
 .red {
     background-color: red;
 }
@@ -99,7 +95,7 @@ button:hover {
     background-color: lime;
 }
 
-/* Додайте стилі для інших кольорів, які ви хочете використовувати */
+
 
 
 
@@ -108,11 +104,11 @@ button:hover {
     background-color: #f0f0f0;
 }
 
-/* Різні кольори для тексту чисел */
+
 .cell span {
     color: inherit;
 }
-/* Стилі для таблиці результатів */
+
 #resultsTable {
     margin: 20px auto;
     border-collapse: collapse;
@@ -133,7 +129,7 @@ th {
     color: #fff;
 }
 
-/* Стилі для екранів */
+
 #screen1, #screen2, #screen3 {
     text-align: center;
     margin: 20px auto;
@@ -146,7 +142,7 @@ th {
 #screen2, #screen3 {
     display: none;
 }
-/* Стилі для контейнера з кубом */
+
 
 
 

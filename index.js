@@ -12,7 +12,7 @@ $(document).ready(function () {
     if (storedResults) {
         gameResults = JSON.parse(storedResults);
 
-        // Оновіть таблицю результатів
+        
         updateResultsTable();
     }
     
@@ -53,8 +53,8 @@ $(document).ready(function () {
         $("#screen2").show();
         $("#screen3").hide();
         resetGrid();
-        resetTimer(); // Перезапуск таймера
-        startTimer(); // Запуск нового таймера
+        resetTimer(); 
+        startTimer(); 
     });
 
     $("#resultDialog").dialog({
@@ -71,7 +71,7 @@ $(document).ready(function () {
         $("#screen2").hide();
         $("#screen3").show();
         stopTimer();
-        // Додайте код для збереження результатів гри та відображення найкращого результату
+        
     });
 
     function resetGrid() {
@@ -79,11 +79,11 @@ $(document).ready(function () {
         $(".cell").remove();
         shuffleArray(numbers);
         currentIndex = 0;
-        startTime = new Date().getTime(); // Перезапуск часу
+        startTime = new Date().getTime(); 
         for (var i = 0; i < 25; i++) {
             var number = numbers[i];
             var cell = $("<div>").addClass("cell").text(number);
-            applyRandomColor(cell); // Застосування випадкового кольору
+            applyRandomColor(cell); 
             $("#grid").append(cell);
 
             cell.on("click", function () {
@@ -98,14 +98,14 @@ $(document).ready(function () {
                     $("#error-message").text("Не вірна цифра");
                     currentIndex = 0;
                     resetGrid();
-                    startTimer(); // Перезапуск таймера
+                    startTimer(); 
                 }
             });
         }
     }
     
     function applyRandomColor(cell) {
-        // Випадково вибираємо клас кольору для клітинки
+       
         var colors = ["red", "blue", "green","yellow","orange","purple","pink","brown","grey","lime"];
         var randomColor = colors[Math.floor(Math.random() * colors.length)];
         cell.addClass(randomColor);
@@ -120,30 +120,30 @@ $(document).ready(function () {
         }
     }
 
-    // При завершенні гри і виграші гравця
+    
 function showCongratulations() {
     $("#error-message").text("");
     $("#screen2").hide();
     $("#screen3").show();
     stopTimer();
 
-    var playerName = "Гравець"; // Замініть це на ім'я гравця, яке ви хочете використовувати
-    var currentTime = $("#timer").text(); // Отримайте час з таймера
+    var playerName = "Гравець"; 
+    var currentTime = $("#timer").text(); 
 
-    // Додайте результат в таблицю
+  
     addGameResult(playerName, currentTime);
 
-    // Оновіть таблицю результатів
+    
     updateResultsTable();
 
-        // Додайте код для збереження результатів гри та відображення найкращого результату
+        
     }
     
     
     
     function updateResultsTable() {
         var table = $("#resultsTable");
-        table.find("tr:gt(0)").remove(); // Очистіть попередні дані, залишивши перший рядок з заголовками.
+        table.find("tr:gt(0)").remove(); 
     
         gameResults.forEach(function (result) {
             var row = $("<tr>");
