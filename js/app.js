@@ -5,7 +5,7 @@ $(document).ready(function () {
   });
 
   let timer;
-  let timeLeft = 20;
+  let timeLeft = 60;
   let sequence = generateRandomSequence();
   let selectedNumbers = [];
 
@@ -122,7 +122,7 @@ $(document).ready(function () {
 
   function restartGame() {
     clearInterval(timer);
-    timeLeft = 20;
+    timeLeft = 60;
     selectedNumbers = [];
     sequence = generateRandomSequence();
     displayBoard();
@@ -157,4 +157,5 @@ $(document).ready(function () {
   $("#restartButton").click(function () {
     restartGame();
   });
+  
 });
