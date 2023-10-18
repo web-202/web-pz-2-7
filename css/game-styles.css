@@ -1,0 +1,115 @@
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+
+  .game-board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 4px;
+    border: 1px solid #333; 
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+
+  .game-cell {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #333; 
+    border-radius: 4px;
+    margin: 2px;
+    cursor: pointer;
+  }
+  
+.cell {
+    width: 80px; 
+    height: 80px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin: 2px;
+    cursor: pointer;
+  }
+  
+  
+  .game-time {
+    font-size: 36px;
+    margin-bottom: 16px;
+  }
+  
+  
+  .restart-button {
+    color: white;
+    background-color: #5c9bd5; 
+    padding: 16px 32px;
+    font-size: 32px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+  }
+  
+ 
+  .error-message {
+    display: none;
+  }
+  
+ 
+  .text-black {
+    color: black;
+  }
+  
+  .text-red {
+    color: red;
+  }
+  
+  .text-blue {
+    color: blue;
+  }
+  
+  .text-green {
+    color: green;
+  }
+  
+  .text-orange {
+    color: orange;
+  }
+  
+  .text-purple {
+    color: purple;
+  }
+  
+  .font-small {
+    font-size: 24px;
+  }
+  
+  .font-medium {
+    font-size: 28px;
+  }
+  
+  .font-large {
+    font-size: 32px;
+  }
+  
+  .font-xl {
+    font-size: 36px;
+  }
+  
+  .font-xxl {
+    font-size: 48px;
+  }
+  
+  .font-xxxl {
+    font-size: 60px;
+  }
+  
