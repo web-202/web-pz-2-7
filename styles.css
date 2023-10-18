@@ -7,7 +7,7 @@ body {
 }
 
 .back-link {
-    color: blue;
+    color: rgb(50, 92, 43);
     text-decoration: none;
     margin: 10px;
     font-size: 18px;
@@ -38,10 +38,10 @@ body {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #04AA6D;
+    background-color: #386d59;
     color: white;
 }
 
 .bg-lime {
-    background-color: lime;
+    background-color: rgb(198, 98, 71);
 }
