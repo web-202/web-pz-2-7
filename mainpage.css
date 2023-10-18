@@ -1,0 +1,87 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  #app-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  #game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #grid {
+    border-collapse: collapse;
+  }
+  
+  #grid td {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #ccc;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  button#reset-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+  }
+  
+  #timer {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Define different styles for numbers */
+  .number-style-1 {
+    font-size: 16px;
+    color: red;
+  }
+  
+  .number-style-2 {
+    font-size: 20px;
+    color: blue;
+  }
+  
+  .number-style-3 {
+    font-size: 24px;
+    color: green;
+  }
+  
+  .number-style-4 {
+    font-size: 18px;
+    color: purple;
+  }
+  
+  .number-style-5 {
+    font-size: 22px;
+    color: orange;
+  }
+  
+
+  
+  
+  
+  
