@@ -1,10 +1,10 @@
-/* Стилі для контейнера результатів */
+
 .result-container {
     text-align: center;
     padding: 20px;
   }
   
-  /* Стилі для таблиці результатів */
+ 
   .result-table {
     width: 80%;
     margin: 0 auto;
@@ -12,30 +12,30 @@
     border: 1px solid #333; 
   }
   
-  /* Стилі для заголовків таблиці */
+ 
   .table-header {
     background-color: #5c9bd5; 
     color: white;
     font-weight: bold;
   }
   
-  /* Стилі для рядків таблиці */
+
   .table-row {
     background-color: #e9eff7;
     border: 1px solid #ddd;
   }
   
-  /* Стилі для рядків таблиці з парними номерами */
+ 
   .table-row:nth-child(even) {
     background-color: #d1dfee;
   }
   
-  /* Стилі для найменшого часу */
+ 
   .smallest-time {
     background-color: #fbe4d4 !important;
   }
   
-  /* Стилі для посилань */
+
   .result-link {
     text-decoration: none;
     color: white;
@@ -45,32 +45,30 @@
     margin-bottom: 16px;
   }
   
-  /* Стилі для тексту з червоним кольором */
+ 
   .text-red {
     color: red;
   }
   
-  /* Стилі для тексту з синім кольором */
+ 
   .text-blue {
     color: blue;
   }
   
-  /* Стилі для тексту з зеленим кольором */
+ 
   .text-green {
     color: green;
   }
   
-  /* Стилі для тексту з помаранчевим кольором */
+  
   .text-orange {
     color: orange;
   }
   
-  /* Стилі для тексту з фіолетовим кольором */
   .text-purple {
     color: purple;
   }
   
-  /* Стилі для тексту різного розміру */
   .text-small {
     font-size: 24px;
   }

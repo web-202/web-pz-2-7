@@ -1,4 +1,4 @@
-/* Стилі для контейнера стартової сторінки */
+
 .start-container {
     display: flex;
     justify-content: center;
@@ -7,13 +7,13 @@
     height: 100vh;
   }
   
-  /* Стилі для заголовка стартової сторінки */
+ 
   .start-title {
     font-size: 80px;
     color: red;
   }
   
-  /* Стилі для посилань */
+
   .start-link {
     text-decoration: none;
     color: white;
@@ -23,7 +23,7 @@
     margin-bottom: 16px;
   }
   
-  /* Стилі для тексту різного кольору */
+  
   .text-black {
     color: black;
   }
@@ -48,7 +48,7 @@
     color: purple;
   }
   
-  /* Стилі для тексту різного розміру */
+ 
   .text-small {
     font-size: 24px;
   }

@@ -1,4 +1,4 @@
-/* Стилі для основного контейнера гри */
+
 .game-container {
     display: flex;
     justify-content: center;
@@ -8,7 +8,7 @@
     overflow: hidden;
   }
   
-  /* Стилі для ігрового поля (дошки) */
+
   .game-board {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -17,8 +17,7 @@
     border-radius: 4px;
     margin-bottom: 16px;
   }
-  
-  /* Стилі для окремої "клітинки" на дошці */
+
   .game-cell {
     width: 100px;
     height: 100px;
@@ -30,7 +29,7 @@
     margin: 2px;
     cursor: pointer;
   }
-  /* Стилі для окремої "клітинки" на дошці */
+  
 .cell {
     width: 80px; 
     height: 80px; 
@@ -43,13 +42,13 @@
     cursor: pointer;
   }
   
-  /* Стилі для відображення часу */
+  
   .game-time {
     font-size: 36px;
     margin-bottom: 16px;
   }
   
-  /* Стилі для кнопки рестарту гри */
+  
   .restart-button {
     color: white;
     background-color: #5c9bd5; 
@@ -60,12 +59,12 @@
     cursor: pointer;
   }
   
-  /* Стилі для повідомлення про помилку (початково прихованого) */
+ 
   .error-message {
     display: none;
   }
   
-  /* Стилі для тексту різного кольору */
+ 
   .text-black {
     color: black;
   }
@@ -90,7 +89,6 @@
     color: purple;
   }
   
-  /* Стилі для шрифту різного розміру */
   .font-small {
     font-size: 24px;
   }
