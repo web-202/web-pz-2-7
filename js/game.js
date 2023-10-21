@@ -9,24 +9,27 @@ function updateTimer() {
     const remainderSeconds = seconds % 60;
     const displayTime = `Залишилось: ${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
     document.getElementById('timer').textContent = displayTime;
-    if(seconds === 0){
+    if (seconds === 0) {
         $('#btn_1, #btn_2, #btn_3, #btn_4, #btn_5, ' +
-                '#btn_6, #btn_7, #btn_8, #btn_9, #btn_10,' +
-                '#btn_11, #btn_12, #btn_13, #btn_14, #btn_15,' +
-                '#btn_16, #btn_17, #btn_18, #btn_19, #btn_20,' +
-                '#btn_21, #btn_22, #btn_23, #btn_24, #btn_25').addClass('button-disabled');
-            alert('Час вийшов!');
-            startStopTimer()
+            '#btn_6, #btn_7, #btn_8, #btn_9, #btn_10,' +
+            '#btn_11, #btn_12, #btn_13, #btn_14, #btn_15,' +
+            '#btn_16, #btn_17, #btn_18, #btn_19, #btn_20,' +
+            '#btn_21, #btn_22, #btn_23, #btn_24, #btn_25').addClass('button-disabled');
+        alert('Час вийшов!');
+        startStopTimer()
     }
-  }
-  function startStopTimer() {
+}
+function startStopTimer() {
     if (timerRunning) {
-      clearInterval(timerInterval);
+        clearInterval(timerInterval);
     } else {
-      timerInterval = setInterval(updateTimer, 1000);
+        timerInterval = setInterval(updateTimer, 1000);
     }
     timerRunning = !timerRunning;
-  }
+}
+
+
+
 function game(value) {
     gameValue.push(value)
     console.log(gameValue);
@@ -34,9 +37,9 @@ function game(value) {
     console.log(gameValue[gameValue.length - 2] + 1);
     if (gameValue.length <= 10) {
         if (gameValue[gameValue.length - 1] === gameValue[gameValue.length - 2] + 1) {
-            
+
             console.log("ok");
-        } else if (gameValue[0] === 1 && gameValue.length === 1) {
+        } else if (gameValue.length === 1) {
             console.log("OKEY");
             startStopTimer()
         } else {
@@ -45,30 +48,39 @@ function game(value) {
                 '#btn_11, #btn_12, #btn_13, #btn_14, #btn_15,' +
                 '#btn_16, #btn_17, #btn_18, #btn_19, #btn_20,' +
                 '#btn_21, #btn_22, #btn_23, #btn_24, #btn_25').addClass('button-disabled');
-            alert('Не вірна цифра!');
-            startStopTimer()
+            
+
+            $("#myDialog").dialog("open");
         }
-
-        
-
-        if (gameValue[gameValue.length - 1] === 10 && gameValue.length === 10) {
+        if (gameValue.length === 10) {
             $('#btn_1, #btn_2, #btn_3, #btn_4, #btn_5, ' +
                 '#btn_6, #btn_7, #btn_8, #btn_9, #btn_10,' +
                 '#btn_11, #btn_12, #btn_13, #btn_14, #btn_15,' +
                 '#btn_16, #btn_17, #btn_18, #btn_19, #btn_20,' +
                 '#btn_21, #btn_22, #btn_23, #btn_24, #btn_25').addClass('button-disabled');
-            
-            alert('Вітаю, ви виграли!');
-            restartBtn++;
-            window.location.href = './result.html'
-
-            let resultData = {
-                name_game: `Гра ${restartBtn}`,
-                time: `${seconds}`
+            if (timerRunning === true) {
+                startStopTimer()
             }
+            $('#modalVictory').dialog('open');//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            
+            restartBtn++;
+            if (localStorage.getItem('result') !== null) {
+                let data = JSON.parse(localStorage.getItem('result'))
 
-            localStorage.setItem('result', JSON.stringify(resultData))
-            // !!!!!!!!!!!!!!!!!!!!
+                let resultData = [`Гра`, `${seconds}`];
+
+                data[data.length] = resultData
+
+                console.log(data.length);
+                console.log(data);
+
+                localStorage.setItem('result', JSON.stringify(data))
+            } else {
+                let resultData = [[`Гра`, `${seconds}`]];
+                console.log(resultData);
+
+                localStorage.setItem('result', JSON.stringify(resultData))
+            }
         }
     } else {
         $('#btn_1, #btn_2, #btn_3, #btn_4, #btn_5, ' +
@@ -76,47 +88,44 @@ function game(value) {
             '#btn_11, #btn_12, #btn_13, #btn_14, #btn_15,' +
             '#btn_16, #btn_17, #btn_18, #btn_19, #btn_20,' +
             '#btn_21, #btn_22, #btn_23, #btn_24, #btn_25').addClass('button-disabled');
-        
     }
 }
 
 const containers = document.querySelectorAll('.container1');
 
-// Змінюємо CSS для певних елементів
-for(let i = 0; i < 25; i++){
-    if(i % 5 === 0 || i === 0){
+for (let i = 0; i < 25; i++) {
+    if (i % 5 === 0 || i === 0) {
         containers[i].style.fontSize = '20px';
         containers[i].style.color = 'blue';
         containers[i].style.fontWeight = '100';
-    }else if(i % 5 === 1){
+    } else if (i % 5 === 1) {
         containers[i].style.fontSize = '45px';
         containers[i].style.color = 'red';
         containers[i].style.fontWeight = '500';
-    }else if(i % 5 === 2){
+    } else if (i % 5 === 2) {
         containers[i].style.fontSize = '25px';
         containers[i].style.color = 'orange';
         containers[i].style.fontWeight = '300';
-    }else if(i % 5 === 3){
+    } else if (i % 5 === 3) {
         containers[i].style.fontSize = '45px';
         containers[i].style.color = 'purple';
         containers[i].style.fontWeight = '200';
-    }else if(i % 5 === 4){
+    } else if (i % 5 === 4) {
         containers[i].style.fontSize = '15px';
         containers[i].style.color = 'green';
         containers[i].style.fontWeight = '600';
     }
-    
+
 }
 
 
 function shuffleElements() {
-    const container = document.querySelector('.grid-container'); // Отримуємо батьківський контейнер
-    const children = Array.from(container.children); // Отримуємо всі дітей контейнера у формі масиву
+    const container = document.querySelector('.grid-container');
+    const children = Array.from(container.children);
 
-    // Змішуємо елементи випадковим чином
     for (let i = children.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [children[i], children[j]] = [children[j], children[i]]; // Міняємо місцями два елементи
+        [children[i], children[j]] = [children[j], children[i]];
     }
 
     children.forEach((child, index) => {
@@ -126,9 +135,27 @@ function shuffleElements() {
 
 shuffleElements()
 
+$('#myDialog').dialog({
+    autoOpen: false,
+    modal: true,
+    buttons: {
+        "Закрити": function () {
+            $(this).dialog("close");
+        }
+    }
+});
 
+$('#modalVictory').dialog({
+    autoOpen: false,
+    modal: true,
+    buttons: {
+        "Закрити": function () {
+            $(this).dialog("close");
+            window.location.href = '../result.html'
+        }
+    }
+});
 
-  
 
 $('#restart').click(function () {
     $('#btn_1, #btn_2, #btn_3, #btn_4, #btn_5, ' +
@@ -138,7 +165,7 @@ $('#restart').click(function () {
         '#btn_21, #btn_22, #btn_23, #btn_24, #btn_25').removeClass('button-disabled');
     gameValue = [];
     seconds = 60;
-    if(timerRunning === true){
+    if (timerRunning === true) {
         startStopTimer();
     }
 })
