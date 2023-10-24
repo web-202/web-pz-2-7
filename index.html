@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+  <title>My first game</title>
+  <link rel="stylesheet" type="text/css" href="./main.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div id="page_1" class="page_1">
+    <h1 class="main_title">My first game</h1>
+    <button id="goToPage_2withPage_1" class="main_button">Start game</button>
+    <button id="goToPage_3withPage_1" class="main_button">Table of results</button>
+  </div>
+
+  <div id="page_2" class="page_2">
+    <h3>Remains: <span id="timer_element"></span></h3>
+    <h4 id="current_numbers">0</h4>
+    <div class="game_table" id="game_table">
+
+    </div>
+    <div>
+      <button id="start" onclick="map_generate()" class="main_button">Start from the beginning</button>
+      <button id="goToPage_1withPage_2" class="main_button">To the main menu</button>
+    </div>
+  </div>
+
+  <div id="page_3" class="page_3">
+    <h1 class="main_title">Results of previous games</h1>
+    <table  id="status_table" class="status_table">
+
+    </table>
+    <button id="goToPage_1withPage_3" class="main_button">To the main menu</button>
+  </div>
+  <script src="./index.js"></script>
+</body>
+</html>

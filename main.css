@@ -1,0 +1,133 @@
+* {
+    background-color: silver;
+    margin: 0;
+    padding: 0;
+    font-family: fantasy;
+  }
+  
+  .main_button {
+    background-color: aquamarine;
+    color: red;
+    border-radius: 15px;
+    padding: 10px 20px 10px 20px;
+    cursor: pointer;
+  }
+  
+  .main_button:hover {
+    transform: scale(1.2);
+  }
+  
+  .main_title {
+    margin-bottom: 30px;
+    color: rgb(246, 0, 0);
+    font-size: 50px;
+  }
+  
+  .page_1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-top: 100px;
+  }
+  
+  .page_2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    gap: 10px;
+  }
+  
+  .game_table {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(5, 50px);
+    gap: 5px;
+    border: 1px black solid;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cell {
+    width: 100%;
+    height: 100%;
+    border: 1px black solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .cell_variant_1 {
+    font-size: 33px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: red;
+  }
+  .cell_variant_2 {
+    font-size: 31px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: orange;
+  }
+  .cell_variant_3 {
+    font-size: 26px;
+    font-family: 'Times New Roman', Times, serif;
+    color: yellow;
+  }
+  .cell_variant_4 {
+    font-size: 18px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: green;
+  }
+  .cell_variant_5 {
+    font-size: 13px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: deepskyblue;
+  }
+  .cell_variant_6 {
+    font-size: 17px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: blue;
+  }
+  .cell_variant_7 {
+    font-size: 19px;
+    font-family: fantasy;
+    color: violet;
+  }
+  
+  .page_3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    gap: 10px;
+  }
+  
+  
+  table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px auto;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
