@@ -107,6 +107,7 @@ $(document).ready(function () {
       selectedNumbers.push(selectedNumber);
       if (selectedNumbers.length === 10) {
         endGame("Ви виграли!");
+        addResulttToLocalStorage();
       }
     } else {
       $("#dialog").dialog("open");
@@ -117,7 +118,6 @@ $(document).ready(function () {
   function endGame(message) {
     clearInterval(timer);
     alert(message);
-    restartGame();
   }
 
   function restartGame() {
@@ -131,7 +131,6 @@ $(document).ready(function () {
   }
 
   displayBoard();
-  startTimer();
 
   $("#dialog").dialog({
     autoOpen: false,
@@ -157,5 +156,34 @@ $(document).ready(function () {
   $("#restartButton").click(function () {
     restartGame();
   });
-  
+
+  $(document).ready(function () {
+    $("#resultButton").click(function () {
+      window.location.href = "../html/time.html";
+    });
+  });
+
+  function addResulttToLocalStorage() {
+    const timeLeft = 60 - parseInt($("#time").text());
+    const gameNumber = getNexttGameNumber();
+
+    const results = getLocaalStorageResults1();
+    results.push({
+      id: `Гра ${gameNumber}`,
+      time: `${timeLeft} с.`,
+    });
+
+    localStorage.setItem("results", JSON.stringify(results));
+  }
+
+  function getLocaalStorageResults1() {
+    const storedResults = localStorage.getItem("results");
+    return storedResults ? JSON.parse(storedResults) : [];
+  }
+  function getNexttGameNumber() {
+    const results = getLocaalStorageResults1();
+    const lastResult = results[results.length - 1];
+    return lastResult ? parseInt(lastResult.id.split(" ")[1]) + 1 : 1;
+  }
+
 });
