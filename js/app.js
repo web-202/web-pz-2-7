@@ -109,6 +109,8 @@ $(document).ready(function () {
         endGame("Ви виграли!");
         addResulttToLocalStorage();
       }
+      // $(this).hide();
+      $(this).css("visibility", "hidden");
     } else {
       $("#dialog").dialog("open");
       restartGame();
