@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Pustovoit</title>
+</head>
+<body>
+    <div class="scene" id="oneScene">
+        <h1>Гра послідовність </h1>
+        <button id="start-button">Почати</button>
+    </div>
+    <div class="scene" id="thoScene">
+        <h1>Гра "Збери послідовність з десяти чисел"</h1>
+        <div id="timer">1:00</div>
+        <div id="numbers"></div>
+        <div id="game-table"></div>
+        <div class="buts" id="buts">
+        <button id="start-game">Старт</button>
+        <button id="show-results">Показати результати</button>
+    </div>
+    </div>
+    <div class="scene" id="treScene">
+        <h1>Результати </h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Номер гри</th>
+                    <th>Час </th>
+                </tr>
+            </thead>
+            <tbody id="results">
+            </tbody>
+        </table>
+        <button id="return-to-game">Повернутися до гри</button>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
