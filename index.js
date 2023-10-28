@@ -12,7 +12,7 @@ $(document).ready(function () {
   let timer;
 
   var startButton = $('#start-button');
-  
+
 
   for (let i = 1; i <= gridSize; i++) {
     let row = $('<tr></tr>');
@@ -75,9 +75,23 @@ $(document).ready(function () {
             $(this).addClass('selected');
             currentNumberIndex++;
             if (currentNumberIndex === sequence.length) {
+              let game = localStorage.getItem("game") ? parseInt(localStorage.getItem("game")): 1
+
+              let winders = [{
+                seconds: $("#timer").text(),
+                game
+              }]
+
+
               clearInterval(timer);
+              if (localStorage.getItem("winers")) {
+                winders = [...JSON.parse(localStorage.getItem("winers")), winders[0]]
+              }
+              localStorage.setItem("game", game + 1)
+              localStorage.setItem("winers", JSON.stringify(winders))
+
               displayResult('Вітаю! Ви виграли!');
-            } 
+            }
           } else {
             clearInterval(timer);
             displayResult('Нажаль, ви програли:(');
@@ -85,7 +99,7 @@ $(document).ready(function () {
         });
       }
     });
-    startTime = new Date().getTime(); 
+    startTime = new Date().getTime();
     startTimer();
   }
 
@@ -108,12 +122,11 @@ $(document).ready(function () {
     }, 1000);
   }
 
-  startButton.click(function() {
-    // Перенаправляем пользователя на вторую страницу
-    window.location.href = "main.html"; // Замените "secondpage.html" на путь к вашей второй странице.
+  startButton.click(function () {
+    window.location.href = "main.html";
   });
-  
-  
+
+
 });
 
 
@@ -130,18 +143,17 @@ $(document).ready(function () {
 
 
 
-  
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
