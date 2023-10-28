@@ -91,7 +91,7 @@ $(document).ready(function () {
                 if (selectedNumber === currentIndex + 1) {
                     currentIndex++;
                     $(this).css("background-color", "green");
-                    if (currentIndex === 10) {
+                    if (currentIndex === 5) {
                         showCongratulations();
                     }
                 } else {
