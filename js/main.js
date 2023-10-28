@@ -7,7 +7,7 @@ let timeAfterGame = 0;
 function game() {
     const table = $("#game-table");
     const usedNumbers = new Set();
-    let targetNumber = 1; 
+    let targetNumber = 10; 
     let gameTimer = 60; 
     const timerElement = $("#timer");
     var colors = ["blue", "yellow", "red", "darkgrey", "purple"];
@@ -56,9 +56,9 @@ function game() {
     
         if (cellNumber === targetNumber) {
             
-            targetNumber += 2; // Увеличьте на 2, чтобы перейти к следующему четному числу
+            targetNumber += 2;
         
-            if (targetNumber === 21) {
+            if (targetNumber === 24) {
                 gameNumber += 1;
                 timeAfterGame = 60 - gameTimer;
                 alert(`Знайдені усі числа! Ви перемогли!\Час: ${timeAfterGame} секунд`);
