@@ -36,42 +36,46 @@
   gap: 15px;
 }
 .tableGame {
-  display: grid;
-  grid-template-columns: repeat(6, 60px);
-  grid-template-rows: repeat(6, 60px);
-  gap: 8px;
-  border: 1px black solid;
-  padding: 6px;
+  display:grid;
+  grid-template-columns: repeat(5, 70px);
+  grid-template-rows: repeat(5, 70px);
+  gap: 5px;
+  border: 2px black solid;
+  padding: 15px;
   justify-content: center;
   align-items: center;
 }
 .gridCell {
-  width: 100%;
-  height: 100%;
-  border: 1px black solid;
+  width: 110%;
+  height: 110%;
+  border: 2px black solid;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
 }
+.gridCell:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
 .gridCell__variant-1 {
-  font-size: 40px;
+  font-size: 44px;
   color: sandybrown;
 }
 .gridCell__variant-2 {
-  font-size: 34px;
+  font-size: 38px;
   color: indianred;
 }
 .gridCell__variant-3 {
-  font-size: 30px;
+  font-size: 34px;
   color: cornflowerblue;
 }
 .gridCell__variant-4 {
-  font-size: 24px;
+  font-size: 28px;
   color: yellow;
 }
 .gridCell__variant-5 {
-  font-size: 18px;
+  font-size: 20px;
   color: forestgreen;
 }
 .page3 {
@@ -79,18 +83,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 110px;
-  gap: 15px;
+  margin-top: 120px;
+  gap: 20px;
 }
 .custTable {
-  width: 60%;
+  width: 70%;
   border-collapse: collapse;
-  margin: 30px auto;
+  margin: 35px auto;
 }
 th, td {
-  border: 2px solid #dddddd;
+  border: 3px solid #dddddd;
   text-align: left;
-  padding: 12px;
+  padding: 14px;
 }
 th {
   background-color: #f2f2f2;
@@ -100,4 +104,9 @@ tr:nth-child(even) {
 }
 tr:nth-child(odd) {
   background-color: #ffffff;
+}
+
+.gridCell:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
 }
