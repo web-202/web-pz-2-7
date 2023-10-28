@@ -7,10 +7,10 @@ let timeAfterGame = 0;
 function game() {
     const table = $("#game-table");
     const usedNumbers = new Set();
-    let targetNumber = 2; 
+    let targetNumber = 1; 
     let gameTimer = 60; 
     const timerElement = $("#timer");
-    var colors = ["blue", "yellow", "red", "darkgrey", "purple"];
+    var colors = ["blue", "green", "red", "darkgrey", "purple"];
     var size = ["20px", "25px", "15px", "10px", "30px"]
     
     function getRandomUniqueNumber() {
