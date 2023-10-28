@@ -50,4 +50,5 @@ button {
     align-items: center;
     border: 1px solid #ccc;
     min-height: 50px;
+    background-color: #007BFF;
 }

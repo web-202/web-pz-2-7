@@ -34,6 +34,7 @@ function generateGame() {
     shuffleArray(numbers);
 
     for (let i = 0; i < 5; i++) {
+        debugger
         const row = document.createElement("div");
         row.className = "row";
         for (let j = 0; j < 5; j++) {
@@ -42,6 +43,12 @@ function generateGame() {
             cell.textContent = numbers[i * 5 + j];
             cell.style.fontSize = Math.floor(Math.random() * 20 + 10) + "px"; // Випадковий розмір
             cell.style.color = getRandomColor(); // Випадковий колір
+            cell.addEventListener("click", ()=> {
+                if(gameStarted) {
+                    cell.classList.add("bg-lime")
+                }
+                
+            })
             row.appendChild(cell);
         }
         gameContainer.appendChild(row);
@@ -66,7 +73,6 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
-
 startButton.addEventListener("click", () => {
     if (!gameStarted) {
         generateGame();
