@@ -1,0 +1,142 @@
+body {
+  font-family: Arial, sans-serif;
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+#screen1 {
+  text-align: center;
+  border-radius: 5px;
+  margin-top: 15%;
+}
+
+#screen1 h1 {
+  font-size: 50px;
+  color: rgb(218, 76, 76);
+}
+
+.btn {
+  min-width: 180px;
+  min-height: 35px;
+  font-size: 20px;
+  color: white;
+  background-color: #3498db;
+  border: 1px solid #00548c;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.btn:hover {
+  background-color: #60ade1;
+}
+
+#timer {
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+#screen2,
+#screen3 {
+  text-align: center;
+  margin-top: 10%;
+}
+
+#gameBoard {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border: 1px solid black;
+  padding: 5px;
+  width: 370px;
+  height: 370px;
+  margin: 0 0 30px 36%;
+}
+
+.cell {
+  max-width: 60px;
+  max-height: 60px;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  background-color: #f3f2f2e6;
+}
+
+.cell:hover {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+#resultsTable {
+  border-collapse: collapse;
+  width: 50%;
+  margin: 0 auto;
+}
+
+#resultsTable th,
+#resultsTable td {
+  border: 1px solid #000;
+  padding: 5px;
+  text-align: center;
+}
+
+#resultsTable th {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.ui-dialog-titlebar-close {
+  display: none;
+}
+
+.best-result {
+  background-color: #9bff9b;
+}
+
+.ui-dialog {
+  border: 2px solid #db3434;
+  border-radius: 5pxrgb (219, 52, 52);
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.ui-dialog-titlebar {
+  background-color: #db3434;
+  color: #fff;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+}
+
+.ui-dialog-content {
+  padding: 20px;
+  font-size: 16px;
+  text-align: center;
+  font-size: 40px;
+  color: red;
+  text-shadow: 1px 2px 10px #000;
+  background-color: #fff;
+}
+
+.ui-dialog-buttonset button {
+  background-color: #db3434;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  width: 100px;
+  font-size: 16px;
+  margin-left: 35%;
+}
+
+.ui-dialog-buttonset button:hover {
+  background-color: #e16060;
+}

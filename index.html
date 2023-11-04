@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Game App</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+
+<body>
+    <div id="screen1">
+        <h1>Моя перша гра</h1>
+        <button id="startButton" class="btn">Почати гру</button>
+    </div>
+
+    <div id="screen2" class="hidden">
+        <div id="timer">Залишилось: <span id="countdown">60</span></div>
+        <div id="gameBoard"></div>
+        <button class="startAgainButton btn">Почати спочатку</button>
+    </div>
+
+    <div id="screen3" class="hidden">
+        <h1>Результат</h1>
+        <table id="resultsTable">
+            <tr>
+                <th>Назва гри</th>
+                <th>Час</th>
+            </tr>
+        </table>
+        <button style="margin-top: 50px;" class="resetButton btn">Почати спочатку</button>
+    </div>
+
+    <div id="errorDialog" title="Error" class="hidden">
+        <p>Не вірна цифра</p>
+    </div>
+    <div id="congratulationsDialog" title="Congratulations" class="hidden">
+        <p>Вітаю ви виграли</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
