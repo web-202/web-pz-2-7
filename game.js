@@ -93,7 +93,7 @@ resultsButton.addEventListener("click", () => {
 numbersContainer.addEventListener("click", (e) => {
     if (gameStarted && e.target.classList.contains("number-cell")) {
         const selectedNumber = parseInt(e.target.textContent);
-
+        e.target.classList.add("selected-number");
         if (gameSequence.length === 0) {
             gameSequence.push(selectedNumber);
             return;
@@ -128,7 +128,7 @@ numbersContainer.addEventListener("click", (e) => {
                 id: gameId,
                 time: time
             });
-
+            if (gameSequence.length === 10) {}
             localStorage.setItem("results", JSON.stringify(results));
 
             stopTimer();

@@ -44,6 +44,10 @@ button {
     font-weight: bold;
     margin-top: 20px;
 }
+.number-cell.selected-number {
+    background-color: yellow;
+    color: black;
+}
 
 .number-cell {
     display: flex;
