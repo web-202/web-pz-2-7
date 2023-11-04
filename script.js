@@ -82,6 +82,13 @@ function displayResults() {
     return color;
   }
 
+ 
+
+  function getRandomSize() {
+    const fontSizes = ['12px', '14px', '18px', '22px', '26px'];
+    return fontSizes[Math.floor(Math.random() * fontSizes.length)];
+  }
+
   for (var i = 1; i <= 25; i++) {
     numbersArray.push(i);
   }
@@ -94,7 +101,8 @@ function displayResults() {
     var numberElement = document.createElement('div');
     numberElement.className = 'number';
     numberElement.textContent = numbersArray[i];
-    numberElement.style.backgroundColor = getRandomColor();
+    numberElement.style.color = getRandomColor();
+    numberElement.style.fontSize = getRandomSize();
     numberElement.addEventListener('click', toggleNumber);
     numbersContainer.appendChild(numberElement);
 
