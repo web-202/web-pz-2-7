@@ -67,8 +67,6 @@ function displayResults() {
   }
 
   var timerInterval = setInterval(updateTimer, 1000);
-
-
   var numbersArray = [];
   var selectedNumbers = [];
   var timerInterval;
@@ -81,8 +79,6 @@ function displayResults() {
     }
     return color;
   }
-
- 
 
   function getRandomSize() {
     const fontSizes = ['12px', '14px', '18px', '22px', '26px'];
@@ -135,11 +131,14 @@ function displayResults() {
     if (index === -1) {
       if (selectedNumbers.length < 10) {
         selectedNumbers.push(number);
+      
         event.target.classList.add('selected');
-        event.target.style.filter = 'brightness(120%)';
+        
+        event.target.style.opacity = 0.2;
       }
     } else {
       selectedNumbers.splice(index, 1);
+
       event.target.classList.remove('selected');
       event.target.style.filter = 'brightness(100%)'; 
     }
