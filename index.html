@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game_2_7</title>
+    <link href="./main.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="start-game">
+        <h1 class="title-start-game">Моя перша гра</h1>
+        <div class="btn-block">
+            <input type="button" id="start-game" class="btn-game" value="Почати гру">
+        </div>
+    </div>
+
+    <div class="game">
+        <h3 class="time-end">Залишилось: <span id="time-remainder">0</span></h3>
+        
+        <div class="table" id="table">
+            
+        </div>
+        
+        <div class="btn-restart-game">
+            <input type="button" class="btn-game" id="restart-btn" value="Почати з початку">
+        </div>
+    </div>
+
+    <div class="result-block">
+        <div class="dashboard" id="result">
+                <div class="row-result">
+                    <div class="result-value">
+                        Назва гри
+                    </div>
+                    <div class="result-value">
+                        Час
+                    </div>
+                </div>
+                <div class="result-table" id="result-table">
+                </div>    
+        </div>
+        <div class="btn-restart-game">
+            <input type="button" class="btn-game" id="restart-btn-result" value="Почати з початку">
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
