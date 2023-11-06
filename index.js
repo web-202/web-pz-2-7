@@ -24,7 +24,7 @@ const startInterval = () => {
 
 const start = () => {
     table_game.innerHTML = ''
-    clearTime = 60=
+    clearTime = 60
     numbers = []
     initBlocks()
     clearInterval(timeInterval)
