@@ -22,6 +22,41 @@ const startInterval = () => {
 }
 
 
+const saveLocalStorage = (time) => {
+    const count = localStorage.getItem('count_results')
+    if(!count){
+        localStorage.setItem('count_results', 1)
+    }else{
+        localStorage.setItem('count_results', Number(count) + 1)
+    }
+
+    let result = {
+        game_name: `Гра №${Number(count)}`,
+        time_finish: `${60-time}с`
+    }
+
+    localStorage.setItem(result.game_name, `${result.time_finish}` )
+}
+
+const loadRessultsFromStorage = () => {
+    results = []
+    
+    const count = localStorage.getItem('count_results')
+    console.log(localStorage.getItem(`Гра №${1}`))
+
+    for (let i = 1; i <= Number(count)-1; i++) {
+        let result = {
+            game_name: '',
+            time_finish: ''
+        }
+        
+        result.game_name = `Гра №${i}`
+        result.time_finish = localStorage.getItem(`Гра №${i}`) 
+        console.log(localStorage.getItem(`Гра №${i}`))
+        results.push(result)
+    }
+}
+
 const start = () => {
     table_game.innerHTML = ''
     clearTime = 60
@@ -118,12 +153,8 @@ const generateRandomNumbers = () => {
 
 
 const winGame = (time) => {
-    let result = {
-        game_name: `Гра №${results.length + 1}`,
-        time_finish: `${60-time}с`
-    }
-    results.push(result)
-
+    saveLocalStorage(time)
+    loadRessultsFromStorage()
     loadDashBoardResults()
 }
 
@@ -140,7 +171,7 @@ const loadDashBoardResults = () => {
     $('.result-block').show()
     result.innerHTML = ''
 
-    for (let i = 0; i < results.length; i++) {
+    for (let i = 0; i < results.length-1; i++) {
         const rowResult = document.createElement('div')
         rowResult.classList.add('row-result')
 
@@ -179,3 +210,5 @@ $('#restart-btn-result').click(() => {
     $('.game').show()
 })
 
+loadRessultsFromStorage()
+console.log(results)
