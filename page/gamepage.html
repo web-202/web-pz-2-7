@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/main2.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+</head>
+<body>
+    
+    <h1 id="timer"></h1>
+    <table id="game-table">
+
+    </table>
+    <button id="end_game">Почати заново</button>
+    
+    <div id="error-dialog" title="Ошибка">
+        <p>Неправильне число! Гра починаеться спочатку.</p>
+    </div>
+    <button id="show_button" onclick="displayGameResults()">Показати таблицю</button>
+    <table id="game-results">
+        <tr>
+            <th>Номер гри</th>
+            <th>Час (секунди)</th>
+        </tr>
+    </table>
+    
+    <script src="../js/main.js"></script>
+</body>
+</html>

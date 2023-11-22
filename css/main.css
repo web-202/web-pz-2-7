@@ -1,0 +1,24 @@
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+}
+h1{
+    color: rgb(92, 92, 161);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+button{
+    background-color: rgb(173, 187, 230);
+    border-color: rgb(126, 126, 176);
+    border-radius: 5px;
+    height: 40px;
+    padding: 5px;
+    width: 100px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center; 
+}
+a{
+    padding: 5px;
+}
