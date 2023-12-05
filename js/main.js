@@ -10,7 +10,7 @@ function game() {
     let targetNumber = 2; 
     let gameTimer = 60; 
     const timerElement = $("#timer");
-    var colors = ["blue", "pinck", "red", "darkgrey", "black"];
+    var colors = ["blue", "Green", "red", "darkgrey", "purple"];
     var size = ["20px", "25px", "15px", "10px", "30px"]
 
     function getRandomUniqueNumber() {
@@ -38,40 +38,38 @@ function game() {
         timerElement.text(`Залишилось: ${gameTimer} секунд`);
         gameTimer--;
 
-        if (gameTimer < 0) {
+        if (gameTimer < 0 && !gameOver) {
             alert("Час вичерпано! Гра закінчена");
             clearInterval(timerInterval);
+            startNewGame();
         }
     }
 
     const timerInterval = setInterval(updateTimer, 1000);
 
     table.on("click", "td", function() {
-        if (gameOver) {
-            return;
-        }
-
-        const cell = $(this);
-        const cellNumber = parseInt(cell.text());
-
-        if (cellNumber === targetNumber) {
-            cell.css({ backgroundColor: "blue", fontSize: "20px" });
-            targetNumber += 2; 
-
-            if (targetNumber === 22) {
-                gameNumber += 1;
-                timeAfterGame = 60 - gameTimer;
-                alert(`Знайдені усі числа! Ви перемогли!\Час: ${timeAfterGame} секунд`);
-                clearInterval(timerInterval);
+        if (!gameOver) {
+            const cell = $(this);
+            const cellNumber = parseInt(cell.text());
+    
+            if (!isNaN(cellNumber) && cellNumber === targetNumber) {
+                cell.css({ backgroundColor: "blue", fontSize: "20px" });
+                targetNumber += 2;
+    
+                if (targetNumber > 25) {
+                    gameNumber += 1;
+                    timeAfterGame = 60 - gameTimer;
+                    alert(`Знайдені усі числа! Ви перемогли!\Час: ${timeAfterGame} секунд`);
+                    clearInterval(timerInterval);
+                    startNewGame();
+                }
+            } else {
+                $("#error-dialog").dialog("open");
                 startNewGame();
             }
-        } else {
-            $("#error-dialog").dialog("open");
-            startNewGame();
         }
-
-
     });
+
     function startNewGame() {
         usedNumbers.clear();
         targetNumber = 1;
