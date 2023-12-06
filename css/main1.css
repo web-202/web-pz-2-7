@@ -1,0 +1,32 @@
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+    padding: 50px;
+}
+
+button{
+    background-color: lightblue;
+    border-radius: 5px;
+    height: 30px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+
+td {
+    background-color: #ccc; 
+}
