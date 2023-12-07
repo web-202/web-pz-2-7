@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.table {
+    width: 260px;
+    margin: 50px auto;
+}
+
+th {
+    border: 2px solid black;
+}
+
+tr td {
+    width: 100px;
+    border: 2px solid black;
+}
