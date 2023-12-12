@@ -5,15 +5,14 @@ let isWin = false
 let isLose = false
 let intervalTimer
 let countGame = 1
+let minRange = 1;
+let maxRange = 25;
 
 let warning
 let warningTry
 const winList = document.querySelector('.wins')
 
-
-
 let isRevers = false
-
 
 
 document.getElementById('start-game').addEventListener('click', () => {
@@ -61,7 +60,6 @@ const newGame = () => {
         warningTry = document.querySelector('.warning > span')
         countGame++
 
-
         isWin = false
         isLose = false
         restartGame()
@@ -90,21 +88,21 @@ const restartGame = () => {
     const reverse = document.createElement('div');
     reverse.className = 'reverse';
     if(isRevers){
-        reverse.innerHTML = 'З 10 до 1';
+        reverse.innerHTML = `З ${maxRange} до ${minRange}`;
     }
     else{
-        reverse.innerHTML = 'З 1 до 10';
+        reverse.innerHTML = `З ${minRange} до ${maxRange}`;
     }
     
     const gameBlockDiv = document.createElement('div');
     gameBlockDiv.className = 'game__block';
     if(isRevers){
-        count = 10
+        count = maxRange
     }
-    const numbers = Array.from({ length: 10 }, (_, index) => index + 1);
+    const numbers = Array.from({ length: 25 }, (_, index) => index + 1);
     numbers.sort(() => Math.random() - 0.5);
 
-    for (let index = 0; index < 10; index++) {
+    for (let index = 0; index < 25; index++) {
         let gameElementDiv = document.createElement('div');
         gameElementDiv.className = 'game__element';
         var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
@@ -130,8 +128,9 @@ const restartGame = () => {
 const addEventForItem = () => {
     document.querySelectorAll('.game__element').forEach(item => {
 
-
         item.addEventListener('click', () => {
+            console.log(count);
+
             if (isLose || isWin) return
 
             if (parseInt(item.textContent) == count) {
@@ -144,8 +143,7 @@ const addEventForItem = () => {
                     count++
                 }
                 
-
-                if (count == 11 || count == 0) {
+                if (count == maxRange+1 || count == minRange-1) {
                     isWin = true
                     clearInterval(intervalTimer)
                     warning.textContent = 'Ти преміг'
@@ -157,7 +155,6 @@ const addEventForItem = () => {
                     newLi.textContent = `Гра №${countGame}  Результат: ${60 - timer}cек`;
 
                     winList.appendChild(newLi);
-
 
                 }
             }
@@ -207,8 +204,15 @@ document.getElementById('reverse').addEventListener('click',()=>{
         warningTry = document.querySelector('.warning > span')
         countGame++
 
-
         isWin = false
         isLose = false
         restartGame()
 })
+document.getElementById('apply-range').addEventListener('click', () => {
+    const minRangeInput = document.getElementById('min-range');
+    const maxRangeInput = document.getElementById('max-range');
+    console.log(minRangeInput.value);
+    minRange = parseInt(minRangeInput.value) ;
+    maxRange = parseInt(maxRangeInput.value) ;
+    count = parseInt(minRangeInput.value)
+});
