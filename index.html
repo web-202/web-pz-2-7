@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find the Numbers Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+
+    td {
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+
+    button {
+      font-size: 1.2em;
+      padding: 10px 20px;
+      margin: 10px;
+    }
+
+    #score {
+      font-size: 1.5em;
+      margin-top: 10px;
+    }
+
+    #timer {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Find the Numbers Game</h1>
+
+<button onclick="startGame()">Start Game</button>
+
+<table id="gameTable"></table>
+
+<div id="timer">Time: <span id="countdown">60</span> seconds</div>
+<div id="score">Score: 0</div>
+
+<script>
+  let numbers = Array.from({length: 25}, (_, index) => index + 1);
+  let score = 0;
+  let countdown = 60;
+
+  function startGame() {
+    console.log(document.getElementById('gameTable'))
+    score = 0;
+    countdown = 60;
+    numbers = Array.from({length: 25}, (_, index) => index + 1);
+    updateScore();
+    updateCountdown();
+    generateTable();
+    startCountdown();
+  }
+
+  function generateTable() {
+    while (document.getElementById("gameTable").firstChild) {
+      document.getElementById("gameTable").removeChild(document.getElementById("gameTable").firstChild);
+    }
+    let table = document.getElementById("gameTable");
+
+    for (let i = 0; i < 5; i++) {
+      let row = table.insertRow();
+
+      for (let j = 0; j < 5; j++) {
+        let cell = row.insertCell();
+        let randomNumber = getRandomNumber();
+        cell.innerText = randomNumber;
+        cell.style.color = getRandomColor();
+        cell.style.fontSize = getRandomSize();
+        cell.onclick = function () {
+          onNumberClick(randomNumber);
+        };
+      }
+    }
+  }
+
+  function getRandomNumber() {
+    if (numbers.length === 0) {
+      return null;
+    }
+    let randomIndex = Math.floor(Math.random() * numbers.length);
+    return numbers.splice(randomIndex, 1)[0];
+  }
+
+  function getRandomColor() {
+    return '#' + Math.floor(Math.random() * 16777215).toString(16);
+  }
+
+  function getRandomSize() {
+    return Math.floor(Math.random() * 20 + 10) + 'px';
+  }
+
+  function onNumberClick(clickedNumber) {
+    if (clickedNumber === score + 1) {
+      score++;
+      updateScore();
+      console.log(score)
+      if (score === 2) {
+        endGame();
+      }
+    }
+  }
+
+  function updateScore() {
+    document.getElementById("score").innerText = "Score: " + score;
+  }
+
+  function startCountdown() {
+    let countdownElement = document.getElementById("countdown");
+    let countdownInterval = setInterval(function () {
+      countdown--;
+      updateCountdown();
+
+      if (countdown <= 0) {
+        clearInterval(countdownInterval);
+        endGame();
+      }
+    }, 1000);
+  }
+
+  function updateCountdown() {
+    document.getElementById("countdown").innerText = countdown;
+  }
+
+  function endGame() {
+    alert("Game Over! Your score is: " + score);
+    startGame();
+  }
+</script>
+
+</body>
+</html>
