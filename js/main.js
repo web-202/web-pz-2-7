@@ -117,6 +117,8 @@ function startNewGame(rows, columns) {
   const colors = ["blue", "yellow", "red", "darkgrey", "purple"];
   const size = ["20px", "25px", "15px", "10px", "30px"];
 
+  table.empty();
+
   function getRandomUniqueNumber() {
     let randomNumber;
     do {
