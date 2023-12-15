@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <title>PZ-2-7</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+
+  <body>
+    <p id="timer">Залишилось: 60</p>
+    <div class="screen">
+      <div class="grid-container">
+        <div class="cell" onclick="board(1)" id="btn_1">1</div>
+        <div class="cell" onclick="board(2)" id="btn_2">2</div>
+        <div class="cell" onclick="board(3)" id="btn_3">3</div>
+        <div class="cell" onclick="board(4)" id="btn_4">4</div>
+        <div class="cell" onclick="board(5)" id="btn_5">5</div>
+        <div class="cell" onclick="board(6)" id="btn_6">6</div>
+        <div class="cell" onclick="board(7)" id="btn_7">7</div>
+        <div class="cell" onclick="board(8)" id="btn_8">8</div>
+        <div class="cell" onclick="board(9)" id="btn_9">9</div>
+        <div class="cell" onclick="board(10)" id="btn_10">10</div>
+        <div class="cell" onclick="board(11)" id="btn_11">11</div>
+        <div class="cell" onclick="board(12)" id="btn_12">12</div>
+        <div class="cell" onclick="board(13)" id="btn_13">13</div>
+        <div class="cell" onclick="board(14)" id="btn_14">14</div>
+        <div class="cell" onclick="board(15)" id="btn_15">15</div>
+        <div class="cell" onclick="board(16)" id="btn_16">16</div>
+        <div class="cell" onclick="board(17)" id="btn_17">17</div>
+        <div class="cell" onclick="board(18)" id="btn_18">18</div>
+        <div class="cell" onclick="board(19)" id="btn_19">19</div>
+        <div class="cell" onclick="board(20)" id="btn_20">20</div>
+        <div class="cell" onclick="board(21)" id="btn_21">21</div>
+        <div class="cell" onclick="board(22)" id="btn_22">22</div>
+        <div class="cell" onclick="board(23)" id="btn_23">23</div>
+        <div class="cell" onclick="board(24)" id="btn_24">24</div>
+        <div class="cell" onclick="board(25)" id="btn_25">25</div>
+      </div>
+      <button class="btn" id="restart">Почати з початку</button>
+    </div>
+
+    <div id="myDialog" class="modal">
+      <p>Не вірна цифра</p>
+    </div>
+    <div id="modalVictory" class="modal">
+      <p>Вітаю, ви виграли</p>
+    </div>
+    <script src="./js/game.js"></script>
+  </body>
+</html>
