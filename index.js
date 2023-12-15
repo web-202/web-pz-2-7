@@ -1,10 +1,31 @@
 const table = document.getElementById('table');
 const timer = document.getElementById("timer");
 const start = document.getElementById('start')
+const timeCountInput  = document.getElementById('timeCount')
+const minStepInput = document.getElementById('minStep')
+const maxStepInput = document.getElementById('maxStep')
+
 let listOfNumbers = [];
 let listOfSelectedNumbers = [];
 let countdown;
 let timeLeft = 60;
+let time;
+let minStep;
+let maxStep;
+let firstClick = true;
+
+
+timeCountInput.addEventListener('input', function() {
+    time = timeCountInput.value;
+});
+
+minStepInput.addEventListener('input', function() {
+    minStep = minStepInput.value;
+});
+
+maxStepInput.addEventListener('input', function() {
+    maxStep = maxStepInput.value;
+});
 
 
 $("#game").hide();
@@ -72,7 +93,8 @@ const createTable = () => {
     }
     listOfNumbers = []
     listOfSelectedNumbers = []
-    timeLeft = 60;
+    timeLeft = time? time : 60;
+    firstClick = true;
     clearInterval(countdown);
     startTimer()
 
@@ -116,13 +138,40 @@ const createTable = () => {
 
             cell.addEventListener('click', () => {
                 let selectedNumber = parseInt(cell.textContent);
-
-                listOfSelectedNumbers.push(selectedNumber)
+                
+                
+                if (firstClick){
+                    if(minStep) {
+                        if (selectedNumber === Number(minStep)) {
+                            listOfSelectedNumbers.push(selectedNumber)
+                        }else {
+                            alert('Incorrect number');
+                            createTable();
+                        }
+                    }else {
+                        listOfSelectedNumbers.push(selectedNumber)
+                    }
+                    firstClick = false
+                }else {
+                    listOfSelectedNumbers.push(selectedNumber)
+                }
+                
                 console.log(listOfSelectedNumbers)
 
                 cell.classList.add('selected')
+                
+                if (maxStep && selectedNumber === Number(maxStep)) {
+                    alert('Congratulation, you win')
+                    countOfGame++;
+                    array.push({
+                        game: `Game-${countOfGame}`,
+                        time: timeLeft
+                    })
+                    pushData()
+                    createTable();
+                }
 
-                if (listOfSelectedNumbers.length > 9) {
+                if (listOfSelectedNumbers.length > 9 && !Number(maxStep)) {
                     alert('Congratulation, you win')
                     countOfGame++;
                     array.push({
