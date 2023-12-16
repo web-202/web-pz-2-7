@@ -4,6 +4,61 @@ let timerRunning = false;
 let seconds = 60;
 let restartBtn = 0;
 
+let numberMin = 0;
+let numberMax = 0;
+let lengthArr = 0;
+
+const min = document.getElementById("min");
+const max = document.getElementById("max");
+
+const genarateMinMax = document.getElementById("btnGenMinMax");
+
+genarateMinMax.addEventListener("click", function(){
+  numberMin = min.value;
+  numberMax = max.value;
+  lengthArr = numberMax - numberMin;
+  
+  if(numberMin === 0 || numberMax === 0 || numberMin >= numberMax){
+    $(
+      "#btn_1, #btn_2, #btn_3, #btn_4, #btn_5, " +
+        "#btn_6, #btn_7, #btn_8, #btn_9, #btn_10," +
+        "#btn_11, #btn_12, #btn_13, #btn_14, #btn_15," +
+        "#btn_16, #btn_17, #btn_18, #btn_19, #btn_20," +
+        "#btn_21, #btn_22, #btn_23, #btn_24, #btn_25"
+    ).addClass("button-disabled");
+
+    const validation = document.getElementById("message");
+    validation.textContent = "invalid";
+  }else{
+    $(
+      "#btn_1, #btn_2, #btn_3, #btn_4, #btn_5, " +
+        "#btn_6, #btn_7, #btn_8, #btn_9, #btn_10," +
+        "#btn_11, #btn_12, #btn_13, #btn_14, #btn_15," +
+        "#btn_16, #btn_17, #btn_18, #btn_19, #btn_20," +
+        "#btn_21, #btn_22, #btn_23, #btn_24, #btn_25"
+    ).removeClass("button-disabled");
+    const validation = document.getElementById("message");
+    validation.textContent = "";
+  }
+})
+
+
+if(numberMin === 0 || numberMax === 0 || numberMin <= numberMax){
+    $(
+      "#btn_1, #btn_2, #btn_3, #btn_4, #btn_5, " +
+        "#btn_6, #btn_7, #btn_8, #btn_9, #btn_10," +
+        "#btn_11, #btn_12, #btn_13, #btn_14, #btn_15," +
+        "#btn_16, #btn_17, #btn_18, #btn_19, #btn_20," +
+        "#btn_21, #btn_22, #btn_23, #btn_24, #btn_25"
+    ).addClass("button-disabled");
+
+    const validation = document.getElementById("message");
+    validation.textContent = "invalid";
+  }else{
+    const validation = document.getElementById("message");
+    validation.textContent = "";
+  }
+
 function updateTimer() {
   seconds--;
   const remainderSeconds = seconds % 60;
@@ -33,20 +88,77 @@ function startStopTimer() {
 }
 
 function board(value) {
-  gameValue.push(value);
-  console.log(gameValue);
-  console.log(gameValue[gameValue.length - 1]);
-  console.log(gameValue[gameValue.length - 2] + 1);
-  if (gameValue.length <= 10) {
-    if (
-      gameValue[gameValue.length - 1] ===
-      gameValue[gameValue.length - 2] + 1
-    ) {
-      console.log("ok");
-    } else if (gameValue.length === 1) {
-      console.log("OKEY");
-      startStopTimer();
-    } else {
+  
+  if(numberMin!== 0 || numberMax !== 0 || numberMin !== numberMax){
+    gameValue.push(value);
+    console.log(gameValue);
+    console.log(gameValue[gameValue.length - 1]);
+    console.log(gameValue[gameValue.length - 2] + 1);
+    if(gameValue[0] == numberMin){
+      if (gameValue.length <= lengthArr +1) {
+        if (
+          gameValue[gameValue.length - 1] === 
+          gameValue[gameValue.length - 2] + 1
+        ) {
+          console.log("ok");
+        } else if (gameValue.length === 1) {
+          console.log("OKEY");
+          startStopTimer();
+        } else {
+          $(
+            "#btn_1, #btn_2, #btn_3, #btn_4, #btn_5, " +
+              "#btn_6, #btn_7, #btn_8, #btn_9, #btn_10," +
+              "#btn_11, #btn_12, #btn_13, #btn_14, #btn_15," +
+              "#btn_16, #btn_17, #btn_18, #btn_19, #btn_20," +
+              "#btn_21, #btn_22, #btn_23, #btn_24, #btn_25"
+          ).addClass("button-disabled");
+          startStopTimer();
+          $("#myDialog").dialog("open");
+        }
+        if (gameValue.length === lengthArr + 1) {
+          $(
+            "#btn_1, #btn_2, #btn_3, #btn_4, #btn_5, " +
+              "#btn_6, #btn_7, #btn_8, #btn_9, #btn_10," +
+              "#btn_11, #btn_12, #btn_13, #btn_14, #btn_15," +
+              "#btn_16, #btn_17, #btn_18, #btn_19, #btn_20," +
+              "#btn_21, #btn_22, #btn_23, #btn_24, #btn_25"
+          ).addClass("button-disabled");
+          if (timerRunning === true) {
+            startStopTimer();
+          }
+          console.log("vic");
+          $("#modalVictory").dialog("open");
+
+          restartBtn++;
+          if (localStorage.getItem("result") !== null) {
+            let data = JSON.parse(localStorage.getItem("result"));
+
+            let resultData = [`Гра`, `${seconds}`];
+
+            data[data.length] = resultData;
+
+            console.log(data.length);
+            console.log(data);
+
+            localStorage.setItem("result", JSON.stringify(data));
+          } else {
+            let resultData = [[`Гра`, `${seconds}`]];
+            console.log(resultData);
+
+            localStorage.setItem("result", JSON.stringify(resultData));
+          }
+        }
+      } else {
+        $(
+          "#btn_1, #btn_2, #btn_3, #btn_4, #btn_5, " +
+            "#btn_6, #btn_7, #btn_8, #btn_9, #btn_10," +
+            "#btn_11, #btn_12, #btn_13, #btn_14, #btn_15," +
+            "#btn_16, #btn_17, #btn_18, #btn_19, #btn_20," +
+            "#btn_21, #btn_22, #btn_23, #btn_24, #btn_25"
+        ).addClass("button-disabled");
+        console.log("qwe");
+      }
+    }else if(numberMin === 0 || numberMax === 0 || numberMin === numberMax){
       $(
         "#btn_1, #btn_2, #btn_3, #btn_4, #btn_5, " +
           "#btn_6, #btn_7, #btn_8, #btn_9, #btn_10," +
@@ -54,49 +166,16 @@ function board(value) {
           "#btn_16, #btn_17, #btn_18, #btn_19, #btn_20," +
           "#btn_21, #btn_22, #btn_23, #btn_24, #btn_25"
       ).addClass("button-disabled");
-      startStopTimer();
+    }else {
+      $(
+        "#btn_1, #btn_2, #btn_3, #btn_4, #btn_5, " +
+          "#btn_6, #btn_7, #btn_8, #btn_9, #btn_10," +
+          "#btn_11, #btn_12, #btn_13, #btn_14, #btn_15," +
+          "#btn_16, #btn_17, #btn_18, #btn_19, #btn_20," +
+          "#btn_21, #btn_22, #btn_23, #btn_24, #btn_25"
+      ).addClass("button-disabled");
       $("#myDialog").dialog("open");
     }
-    if (gameValue.length === 10) {
-      $(
-        "#btn_1, #btn_2, #btn_3, #btn_4, #btn_5, " +
-          "#btn_6, #btn_7, #btn_8, #btn_9, #btn_10," +
-          "#btn_11, #btn_12, #btn_13, #btn_14, #btn_15," +
-          "#btn_16, #btn_17, #btn_18, #btn_19, #btn_20," +
-          "#btn_21, #btn_22, #btn_23, #btn_24, #btn_25"
-      ).addClass("button-disabled");
-      if (timerRunning === true) {
-        startStopTimer();
-      }
-      $("#modalVictory").dialog("open");
-
-      restartBtn++;
-      if (localStorage.getItem("result") !== null) {
-        let data = JSON.parse(localStorage.getItem("result"));
-
-        let resultData = [`Гра`, `${seconds}`];
-
-        data[data.length] = resultData;
-
-        console.log(data.length);
-        console.log(data);
-
-        localStorage.setItem("result", JSON.stringify(data));
-      } else {
-        let resultData = [[`Гра`, `${seconds}`]];
-        console.log(resultData);
-
-        localStorage.setItem("result", JSON.stringify(resultData));
-      }
-    }
-  } else {
-    $(
-      "#btn_1, #btn_2, #btn_3, #btn_4, #btn_5, " +
-        "#btn_6, #btn_7, #btn_8, #btn_9, #btn_10," +
-        "#btn_11, #btn_12, #btn_13, #btn_14, #btn_15," +
-        "#btn_16, #btn_17, #btn_18, #btn_19, #btn_20," +
-        "#btn_21, #btn_22, #btn_23, #btn_24, #btn_25"
-    ).addClass("button-disabled");
   }
 }
 
