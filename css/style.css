@@ -20,14 +20,14 @@ p {
   font-family: "Times New Roman", Times, serif;
 }
 
-.grid-container {
+/* .grid-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  height: 99.5%;
+  height: 99%;
   padding: 1px;
   position: relative;
-}
+} */
 
 .cell {
   border: 2px solid black;

@@ -24,7 +24,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  background-color: aqua;
+  background-color: rgba(157, 255, 0, 0.521);
   border-radius: 5px;
   text-align: center;
 }
