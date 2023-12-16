@@ -1,25 +1,40 @@
-let instructionRead = false;
 let gameOver = false;
 let gameNumber = 0;
 let timeAfterGame = 0;
-function documentsReady(){
+let userGameTime = 60;
+let userMinNumber = 1;
+let userMaxNumber = 25;
+let minSeq = 0;
+let maxSeq = 10;
 
+
+function getUserInput() {
+    userGameTime = parseInt($("#game-time").val()) || 60;
+    userMinNumber = parseInt($("#min-number").val()) || 1;
+    userMaxNumber = parseInt($("#max-number").val()) || 25;
+    minSeq =  parseInt($("#min-seq").val()) || 0;
+    maxSeq =  parseInt($("#max-seq").val()) || 25;
+
+    if(minSeq < 0 || minSeq > 25) {
+        minSeq = 0;
+    }
+
+    if(maxSeq < 0 || maxSeq > 25) {
+        maxSeq = 25
+    }
 }
-
 
 function game() {
     const table = $("#game-table");
     const usedNumbers = new Set();
-    let targetNumber = 1; 
-    let gameTimer = 60; 
+    let targetNumber = minSeq;
+    let gameTimer = userGameTime;
     const timerElement = $("#timer");
-    var colors = ["blue", "yellow", "red", "darkgrey", "purple"];
-    var size = ["20px", "25px", "15px", "10px", "30px"]
 
     function getRandomUniqueNumber() {
         let randomNumber;
         do {
-            randomNumber = Math.floor(Math.random() * 25) + 1;
+            randomNumber = Math.floor(Math.random() * (userMaxNumber - userMinNumber + 1)) + userMinNumber;
         } while (usedNumbers.has(randomNumber));
         usedNumbers.add(randomNumber);
         return randomNumber;
@@ -29,9 +44,6 @@ function game() {
         const row = $("<tr></tr>");
         for (let j = 0; j < 5; j++) {
             const cell = $("<td></td>").text(getRandomUniqueNumber());
-            const randomColor = colors[Math.floor(Math.random() * colors.length + 1)];
-            const randomSize = size[Math.floor(Math.random() * size.length + 1)];
-            cell.css({color: randomColor, fontSize: randomSize})
             row.append(cell);
         }
         table.append(row);
@@ -49,56 +61,57 @@ function game() {
 
     const timerInterval = setInterval(updateTimer, 1000);
 
-    table.on("click", "td", function() {
+    table.on("click", "td", function () {
         if (gameOver) {
             return;
         }
 
         const cell = $(this);
         const cellNumber = parseInt(cell.text());
-
+        console.log(targetNumber)
         if (cellNumber === targetNumber) {
-            cell.css({ backgroundColor: "green", fontSize: "20px" }); 
+            cell.css({ backgroundColor: "green" });
             targetNumber++;
 
-            if (targetNumber === 6) {
+            if (targetNumber === maxSeq + 1) {
                 alert("Знайдені усі числа! Ви перемогли");
-                gameNumber += 1
-                timeAfterGame = 60 - gameTimer
+                gameNumber += 1;
+                timeAfterGame = userGameTime - gameTimer;
                 clearInterval(timerInterval);
                 startNewGame();
+                return;
             }
         } else {
             $("#error-dialog").dialog("open");
             startNewGame();
         }
     });
+
     function startNewGame() {
         usedNumbers.clear();
-        targetNumber = 1;
-        gameTimer = 60;
+        targetNumber = minSeq;
+        gameTimer = userGameTime;
         updateTimer();
 
-        table.empty(); 
+        table.empty();
 
         for (let i = 0; i < 5; i++) {
             const row = $("<tr></tr>");
             for (let j = 0; j < 5; j++) {
                 const cell = $("<td></td>").text(getRandomUniqueNumber());
-                const randomColor = colors[Math.floor(Math.random() * colors.length)];
-                const randomSize = size[Math.floor(Math.random() * size.length)];
-                cell.css({color: randomColor, fontSize: randomSize})
                 row.append(cell);
             }
             table.append(row);
         }
 
         gameOver = false;
-    };
-    $("#end_game").on("click", function() {
+    }
+
+    $("#end_game").on("click", function () {
         startNewGame();
-    });       
+    });
 }
+
 function displayGameResults() {
     const resultsTable = $("#game-results");
     const row = $("<tr></tr>");
@@ -107,21 +120,41 @@ function displayGameResults() {
     resultsTable.append(row);
 }
 
-
-$(document).ready(function(){
-    game();
+function resetGame() {
+    gameOver = true;
+    gameNumber = 0;
+    timeAfterGame = 0;
+    $("#game-results tbody").empty();
     $("#game-results").hide();
+}
+
+$(document).ready(function () {
+    
+    $("#game-results").hide();
+
+    $("#start_game").on("click", function () {
+        getUserInput();
+        resetGame();
+        game();
+    });
+
+    $("#end_game").on("click", function () {
+        resetGame();
+    });
+
     $("#show_button").click(function () {
+        displayGameResults();
         $("#game-results").show();
     });
-});
-$("#error-dialog").dialog({
-    autoOpen: false,
-    modal: true,
-    buttons: {
-        "OK": function() {
-            $(this).dialog("close");
-            resetGame();
+
+    $("#error-dialog").dialog({
+        autoOpen: false,
+        modal: true,
+        buttons: {
+            "OK": function () {
+                $(this).dialog("close");
+                resetGame();
+            }
         }
-    }
+    });
 });
