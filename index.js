@@ -4,6 +4,8 @@ const exitButton = document.getElementById("exitButton");
 const gameContainer = document.getElementById("gameContainer");
 const message = document.getElementById("message");
 const timerContainer = document.getElementById("timer");
+const inputNumber = document.getElementById("inputNumber");
+const changeSizeButton = document.getElementById("changeSizeButton");
 let timer;
 
 
@@ -28,28 +30,28 @@ function stopTimer() {
 }
 
 
-function generateGame() {
-    gameContainer.innerHTML = ""
-    const numbers = Array.from({length: 25}, (_, i) => i + 1);
-    shuffleArray(numbers);
+// function generateGame() {
+//     gameContainer.innerHTML = ""
+//     const numbers = Array.from({length: 25}, (_, i) => i + 1);
+//     shuffleArray(numbers);
 
-    for (let i = 0; i < 5; i++) {
-        const row = document.createElement("div");
-        row.className = "row";
-        for (let j = 0; j < 5; j++) {
-            const cell = document.createElement("div");
-            cell.className = "cell";
-            cell.textContent = numbers[i * 5 + j];
-            cell.style.fontSize = Math.floor(Math.random() * 20 + 10) + "px"; // Випадковий розмір
-            cell.style.color = getRandomColor(); // Випадковий колір
-            row.appendChild(cell);
-        }
-        gameContainer.appendChild(row);
-    }
+//     for (let i = 0; i < 5; i++) {
+//         const row = document.createElement("div");
+//         row.className = "row";
+//         for (let j = 0; j < 5; j++) {
+//             const cell = document.createElement("div");
+//             cell.className = "cell";
+//             cell.textContent = numbers[i * 5 + j];
+//             cell.style.fontSize = Math.floor(Math.random() * 20 + 10) + "px"; // Випадковий розмір
+//             cell.style.color = getRandomColor(); // Випадковий колір
+//             row.appendChild(cell);
+//         }
+//         gameContainer.appendChild(row);
+//     }
 
-    gameContainer.style.display = "grid";
-    gameContainer.style.gridTemplateColumns = "1fr 1fr 1fr 1fr 1fr";
-}
+//     gameContainer.style.display = "grid";
+//     gameContainer.style.gridTemplateColumns = "1fr 1fr 1fr 1fr 1fr";
+// }
 
 function getRandomColor() {
     const letters = "0123456789ABCDEF";
@@ -91,6 +93,38 @@ exitButton.addEventListener("click", () => {
 resultsButton.addEventListener("click", () => {
     window.location = "result.html"
 })
+changeSizeButton.addEventListener("click", () => {
+    const selectedNumber = parseInt(inputNumber.value);
+    if (selectedNumber >= 1 && selectedNumber <= 10) {
+        // Змініть розмір поля гри відповідно до обраного числа
+        generateGame(selectedNumber);
+    } else {
+        generateGame(5);
+    }
+});
+
+function generateGame(size) {
+    gameContainer.innerHTML = "";
+    const numbers = Array.from({ length: size * size }, (_, i) => i + 1);
+    shuffleArray(numbers);
+
+    for (let i = 0; i < size; i++) {
+        const row = document.createElement("div");
+        row.className = "row";
+        for (let j = 0; j < size; j++) {
+            const cell = document.createElement("div");
+            cell.className = "cell";
+            cell.textContent = numbers[i * size + j];
+            cell.style.fontSize = Math.floor(Math.random() * 20 + 10) + "px"; // Випадковий розмір
+            cell.style.color = getRandomColor(); // Випадковий колір
+            row.appendChild(cell);
+        }
+        gameContainer.appendChild(row);
+    }
+
+    gameContainer.style.display = "grid";
+    gameContainer.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+}
 
 gameContainer.addEventListener("click", (e) => {
     if (gameStarted && e.target.classList.contains("cell")) {
@@ -136,5 +170,6 @@ gameContainer.addEventListener("click", (e) => {
             stopTimer()
         }
     }
+
 
 });
