@@ -85,7 +85,7 @@ h4 {
 }
 
 .selected {
-    border: 2px red solid;
+    border: 2px rgb(0, 255, 55) solid;
 }
 
 #start {
