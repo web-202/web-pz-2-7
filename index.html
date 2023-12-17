@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <div id="menu">
+      <h4>Моя перша гра</h4>
+      <button id="UrlGame">Гра</button>
+  </div>
+  <div id="game">
+    <button id="UrlMenu">Головна сторінка</button>
+    <div class="settings">
+        <div class="settings-el">
+            <label for="timeCount">Час</label>
+            <input type="number" id="timeCount">
+        </div>
+        <div class="settings-el">
+            <label for="minStep">Мін.число<label>
+            <input type="number" id="minStep">
+        </div>
+        <div class="settings-el">
+            <label for="maxStep">Макс.число</label>
+            <input type="number" id="maxStep">
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="container">
+            <h3>Час гри: <span id="timer"></span></h3>
+            <div id="table">
+
+            </div>
+            <button id="start">Старт</button>
+        </div>
+        <div >
+            <table id="table-score" border="1">
+                <caption>Ваш результат</caption>
+                <thead>
+                <tr>
+                    <th>Номер гри</th>
+                    <th>Час</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
