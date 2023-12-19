@@ -45,7 +45,7 @@ function elementClick(element){
     }
     if(count == numberElement){
         $(blockResult).css('display','none');
-        $(element.srcElement).css({'background-color' : 'rgb(85, 217, 85)', 'color' : 'rgb(85, 217, 85)', 'cursor': 'default'});
+        $(element.srcElement).css({'background-color' : 'rgb(42, 168, 34)', 'color' : 'rgb(42, 168, 34)', 'cursor': 'default'});
         count++;
         isWin = count == 26 ? true : false;
     }

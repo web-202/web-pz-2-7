@@ -7,6 +7,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background: lightgray;
 }
 .game_container{
     display: flex;
@@ -15,8 +16,8 @@ body{
     align-items: center;
     width: 600px;
     height: 600px;
-    background-color: #ffffff;
-    border: 2px solid #ccc;
+    background-color: lightgray;
+    border: 2px solid lightgray;
     border-radius: 10px;
 
     border: transparent;
@@ -38,7 +39,7 @@ p {
     transition: .2s;
 }
 .button:hover{
-    background: aliceblue;
+    background: lightgray;
     color: dodgerblue;
     border: 3px solid dodgerblue;
 }
